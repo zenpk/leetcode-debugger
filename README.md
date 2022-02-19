@@ -56,7 +56,7 @@ treeOut = treeIn;
 Output:
 5
 3,6
-1,4,Null,8
-0,2,Null,Null,7,Null
-Null,Null,Null,Null,Null,Null
+1,4,null,8
+0,2,null,null,7,null
+null,null,null,null,null,null
 ```
