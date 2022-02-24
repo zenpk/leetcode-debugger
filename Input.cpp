@@ -113,6 +113,7 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
                 if (*it != '[' && *it != ' ') temp += *it;
                 it++;
             }
+            if (temp.length() == 0) continue;
             vecTemp.push_back(stoi(temp));
             temp.clear();
             if (*it == ']') {
