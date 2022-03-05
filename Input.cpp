@@ -1,8 +1,8 @@
 #include "Input.h"
 
-void strToVec(string &s, vector<int> &vec) {
-    string temp;
-    for (string::iterator it = s.begin(); it < s.end(); it++) {
+void strToVec(std::string &s, std::vector<int> &vec) {
+    std::string temp;
+    for (std::string::iterator it = s.begin(); it < s.end(); it++) {
         while (*it != ',' && *it != ']') {
             if (*it != '[' && *it != ' ') temp += *it;
             it++;
@@ -12,11 +12,11 @@ void strToVec(string &s, vector<int> &vec) {
     }
 }
 
-void createTree(vector<int> &pre, vector<int> &in, TreeNode *head) {
+void createTree(std::vector<int> &pre, std::vector<int> &in, TreeNode *head) {
     int n = (int) pre.size();
     TreeNode *now = head;
-    stack<TreeNode *> history;
-    stack<int> nodeStack;
+    std::stack<TreeNode *> history;
+    std::stack<int> nodeStack;
     int j = 0;
     for (int i = 0; i < n; i++) {
         now->val = pre[i];
@@ -45,11 +45,11 @@ void createTree(vector<int> &pre, vector<int> &in, TreeNode *head) {
     }
 }
 
-void strToTree(string s, TreeNode *head) {
-    vector<int> val;
-    vector<int> nullFlag;
-    string temp;
-    for (string::iterator it = s.begin(); it < s.end(); it++) {
+void strToTree(std::string s, TreeNode *head) {
+    std::vector<int> val;
+    std::vector<int> nullFlag;
+    std::string temp;
+    for (std::string::iterator it = s.begin(); it < s.end(); it++) {
         if (*it != '[' && *it != ' ') {
             if (*it != ',' && *it != ']')temp += *it;
             else {
@@ -65,7 +65,7 @@ void strToTree(string s, TreeNode *head) {
         }
     }
     head->val = val[0];
-    queue<TreeNode *> q;
+    std::queue<TreeNode *> q;
     q.push(head);
     int n = val.size();
     int pos = 1;
@@ -90,11 +90,11 @@ void strToTree(string s, TreeNode *head) {
     }
 }
 
-void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<int> &vecIn,
-                     vector<vector<int>> &matrixIn, vector<string> &vecStrIn, ListNode *listIn, string &strIn,
-                     TreeNode *treeIn) {
+void Input::getInput(std::string &inType, std::string &s1, std::string &s2, int &intIn, std::vector<int> &vecIn,
+                     std::vector<std::vector<int>> &matrixIn, std::vector<std::string> &vecStrIn, ListNode *listIn,
+                     std::string &strIn, TreeNode *treeIn) {
     if (s1.length() == 0) {
-        cout << "wrong s1" << endl;
+        std::cout << "wrong s1" << std::endl;
         return;
     }
     if (inType == "int") {
@@ -106,9 +106,9 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
         return;
     }
     if (inType == "vector<vector<int>>") {
-        vector<int> vecTemp;
-        string temp;
-        for (string::iterator it = s1.begin(); it < s1.end(); it++) {
+        std::vector<int> vecTemp;
+        std::string temp;
+        for (std::string::iterator it = s1.begin(); it < s1.end(); it++) {
             while (*it != ',' && *it != ']') {
                 if (*it != '[' && *it != ' ') temp += *it;
                 it++;
@@ -124,8 +124,8 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
         return;
     }
     if (inType == "vector<string>") {
-        string temp;
-        for (string::iterator it = s1.begin(); it < s1.end(); it++) {
+        std::string temp;
+        for (std::string::iterator it = s1.begin(); it < s1.end(); it++) {
             while (*it != ',' && *it != ']') {
                 if (*it != '"' && *it != '[') temp += *it;
                 it++;
@@ -136,7 +136,7 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
         return;
     }
     if (inType == "ListNode*") {
-        vector<int> temp;
+        std::vector<int> temp;
         strToVec(s1, temp);
         ListNode *now = listIn;
         int i = 0;
@@ -155,7 +155,7 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
     }
     if (inType == "TreeNode*") {
         if (s2.length() != 0) {
-            vector<int> vec1, vec2;
+            std::vector<int> vec1, vec2;
             strToVec(s1, vec1);
             strToVec(s2, vec2);
             createTree(vec1, vec2, treeIn);
@@ -165,5 +165,5 @@ void Input::getInput(string &inType, string &s1, string &s2, int &intIn, vector<
             return;
         }
     }
-    cout << "Wrong inType" << endl;
+    std::cout << "Wrong inType" << std::endl;
 }

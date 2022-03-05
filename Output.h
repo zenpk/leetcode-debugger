@@ -5,15 +5,15 @@
 #include <queue>
 #include <string>
 #include <vector>
+#include <wsman.h>
 #include "mystruct.h"
 
-using namespace std;
 
 class Output {
 public:
-    static void getOutput(string &outType, int intOut, const vector<int> &vecOut, const vector<vector<int>> &matrixOut,
-                          const vector<string> &vecStrOut, ListNode *listOut, Node *nodeOut, const string &strOut,
-                          TreeNode *treeOut);
+    static void getOutput(std::string &outType, int intOut, const std::vector<int> &vecOut,
+                          const std::vector<std::vector<int>> &matrixOut, const std::vector<std::string> &vecStrOut,
+                          ListNode *listOut, Node *nodeOut, const std::string &strOut, TreeNode *treeOut);
 };
 
 

@@ -8,13 +8,12 @@
 #include <string>
 #include "mystruct.h"
 
-using namespace std;
 
 class Input {
 public:
-    static void
-    getInput(string &inType, string &s1, string &s2, int &intIn, vector<int> &vecIn, vector<vector<int>> &matrixIn,
-             vector<string> &vecStrIn, ListNode *listIn, string &strIn, TreeNode *treeIn);
+    static void getInput(std::string &inType, std::string &s1, std::string &s2, int &intIn, std::vector<int> &vecIn,
+                         std::vector<std::vector<int>> &matrixIn, std::vector<std::string> &vecStrIn, ListNode *listIn,
+                         std::string &strIn, TreeNode *treeIn);
 
 };
 

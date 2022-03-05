@@ -5,17 +5,16 @@
 #include "Output.h"
 #include "Solution.h"
 
-using namespace std;
 
 int main() {
     // Types of I/O
     int intIn = 0, intOut = 0;
-    vector<int> vecIn, vecOut;
-    vector<vector<int>> matrixIn, matrixOut;
-    vector<string> vecStrIn, vecStrOut;
+    std::vector<int> vecIn, vecOut;
+    std::vector<std::vector<int>> matrixIn, matrixOut;
+    std::vector<std::string> vecStrIn, vecStrOut;
     ListNode *listIn = new ListNode, *listOut = nullptr;
     Node *nodeIn = new Node, *nodeOut = nullptr;
-    string strIn, strOut;
+    std::string strIn, strOut;
     TreeNode *treeIn = new TreeNode, *treeOut = nullptr;
 
     // --- INPUT ---
@@ -33,10 +32,10 @@ int main() {
      *          1. TreeNode*: s1 = "[7,3,15,9,20]" (pre-order), s2 = "[3,7,9,15,20]" (In-order) (BINARY TREE ONLY)
      *          2. multiple calls: currently not supported
      */
-    string inType = "TreeNode*"; // for function "getInput"
-    string outType = "TreeNode*"; // for function "getOutput"
-    string s1 = "[3,9,20,null,null,15,7]"; // for TYPE 1, you only need to specify s1
-    string s2 = ""; // for TYPE 2, you need to specify both s1 and s2
+    std::string inType = "TreeNode*"; // for function "getInput"
+    std::string outType = "TreeNode*"; // for function "getOutput"
+    std::string s1 = "[3,9,20,null,null,15,7]"; // for TYPE 1, you only need to specify s1
+    std::string s2 = ""; // for TYPE 2, you need to specify both s1 and s2
     // --- INPUT END ---
 
     // Get input

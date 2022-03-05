@@ -1,90 +1,90 @@
 #include "Output.h"
 
-void Output::getOutput(string &outType, int intOut, const vector<int> &vecOut, const vector<vector<int>> &matrixOut,
-                       const vector<string> &vecStrOut, ListNode *listOut, Node *nodeOut, const string &strOut,
-                       TreeNode *treeOut) {
+void Output::getOutput(std::string &outType, int intOut, const std::vector<int> &vecOut,
+                       const std::vector<std::vector<int>> &matrixOut, const std::vector<std::string> &vecStrOut,
+                       ListNode *listOut, Node *nodeOut, const std::string &strOut, TreeNode *treeOut) {
     if (outType == "int") {
-        cout << intOut << endl;
+        std::cout << intOut << std::endl;
         return;
     }
     if (outType == "vector<int>") {
-        cout << '[';
+        std::cout << '[';
         for (int i = 0; i < vecOut.size(); i++) {
-            cout << vecOut[i];
-            if (i < vecOut.size() - 1) cout << ',';
+            std::cout << vecOut[i];
+            if (i < vecOut.size() - 1) std::cout << ',';
         }
-        cout << ']' << endl;
+        std::cout << ']' << std::endl;
         return;
     }
     if (outType == "vector<vector<int>>") {
-        cout << '[';
+        std::cout << '[';
         for (int i = 0; i < matrixOut.size(); i++) {
-            cout << '[';
+            std::cout << '[';
             for (int j = 0; j < matrixOut[i].size(); j++) {
-                cout << matrixOut[i][j];
-                if (j < matrixOut[i].size() - 1) cout << ',';
+                std::cout << matrixOut[i][j];
+                if (j < matrixOut[i].size() - 1) std::cout << ',';
             }
-            cout << ']';
-            if (i < matrixOut.size() - 1) cout << ',';
+            std::cout << ']';
+            if (i < matrixOut.size() - 1) std::cout << ',';
         }
-        cout << ']' << endl;
+        std::cout << ']' << std::endl;
         return;
     }
     if (outType == "vector<string>") {
-        cout << '[';
+        std::cout << '[';
         for (int i = 0; i < vecStrOut.size(); i++) {
-            cout << '"';
+            std::cout << '"';
             for (char j: vecStrOut[i]) {
-                cout << j;
+                std::cout << j;
             }
-            cout << '"';
-            if (i < vecStrOut.size() - 1) cout << ',';
+            std::cout << '"';
+            if (i < vecStrOut.size() - 1) std::cout << ',';
         }
-        cout << ']' << endl;
+        std::cout << ']' << std::endl;
         return;
     }
     if (outType == "ListNode*") {
         if (listOut == nullptr)return;
-        cout << '[';
+        std::cout << '[';
         ListNode *now = listOut;
         while (now != nullptr) {
-            cout << now->val;
-            if (now->next != nullptr) cout << ',';
+            std::cout << now->val;
+            if (now->next != nullptr) std::cout << ',';
             now = now->next;
         }
-        cout << ']' << endl;
+        std::cout << ']' << std::endl;
         return;
     }
     if (outType == "Node*") {
         if (nodeOut == nullptr)return;
-        cout << '[';
+        std::cout << '[';
         Node *now = nodeOut;
         while (now != nullptr) {
-            cout << now->val;
+            std::cout << now->val;
             now = now->right;
             if (now == nodeOut || now == nullptr)break;
-            cout << ',';
+            std::cout << ',';
         }
-        cout << ']' << endl;
-        cout << '[';
+        std::cout << ']' << std::endl;
+        std::cout << '[';
         now = nodeOut->left;
         while (now != nullptr) {
-            cout << now->val;
+            std::cout << now->val;
             now = now->left;
             if (now == nodeOut->left || now == nullptr)break;
-            cout << ',';
+            std::cout << ',';
         }
-        cout << ']' << endl;
+        std::cout << ']' << std::endl;
         return;
     }
     if (outType == "string") {
-        cout << strOut << endl;
+        std::cout << strOut << std::endl;
         return;
     }
     if (outType == "TreeNode*") {
         if (treeOut == nullptr)return;
-        queue<TreeNode *> q;
-        queue<int> height;
+        std::queue<TreeNode *> q;
+        std::queue<int> height;
         q.push(treeOut);
         height.push(0);
         while (!q.empty()) {
@@ -92,10 +92,10 @@ void Output::getOutput(string &outType, int intOut, const vector<int> &vecOut, c
             int h = height.front();
             q.pop();
             height.pop();
-            if (now != nullptr) cout << now->val;
-            else cout << "null";
-            if (height.front() == h) cout << ',';
-            else cout << endl;
+            if (now != nullptr) std::cout << now->val;
+            else std::cout << "null";
+            if (height.front() == h) std::cout << ',';
+            else std::cout << std::endl;
             if (now != nullptr) {
                 q.push(now->left);
                 height.push(h + 1);
@@ -105,5 +105,5 @@ void Output::getOutput(string &outType, int intOut, const vector<int> &vecOut, c
         }
         return;
     }
-    cout << "Wrong outType" << endl;
+    std::cout << "Wrong outType" << std::endl;
 }
