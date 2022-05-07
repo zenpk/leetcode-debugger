@@ -5,7 +5,6 @@
 #include <queue>
 #include <string>
 #include <vector>
-#include <wsman.h>
 #include "mystruct.h"
 
 
